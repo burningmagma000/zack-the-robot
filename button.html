@@ -1,0 +1,85 @@
+<img id = "fullscreenButton" src = "https://raw.githubusercontent.com/burningmagma000/zack-the-robot/refs/heads/main/fullscreenButton.png" style = "position: absolute; opacity: 0.5; pointer-events: auto;">
+
+<script>
+document.getElementById("fullscreenButton").isHover = false;
+document.getElementById("fullscreenButton").isDown = false;
+
+function Button()
+{
+    if (!document.getElementsByTagName("canvas")[0])
+    {
+        requestAnimationFrame(Button);
+        return;
+    }
+
+    if (document.getElementsByTagName("canvas")[0].getBoundingClientRect().width === 0)
+    {
+        requestAnimationFrame(Button);
+        return;
+    }
+
+    document.getElementById("fullscreenButton").style.width = document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 30 + "px";
+
+    document.getElementById("fullscreenButton").style.height = document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 30 + "px";
+
+    document.getElementById("fullscreenButton").style.left = document.getElementsByTagName("canvas")[0].getBoundingClientRect().right - document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 30 - document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 60 + "px";
+
+    document.getElementById("fullscreenButton").style.top = document.getElementsByTagName("canvas")[0].getBoundingClientRect().top + document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 60 + "px";
+
+    requestAnimationFrame(Button);
+}
+
+requestAnimationFrame(Button);
+
+document.getElementById("fullscreenButton").addEventListener("mouseenter", function()
+{
+    document.getElementById("fullscreenButton").isHover = true;
+
+    if (!document.getElementById("fullscreenButton").isDown)
+    {
+        document.getElementById("fullscreenButton").style.opacity = "0.75";
+    }
+});
+
+document.getElementById("fullscreenButton").addEventListener("mouseleave", function()
+{
+    document.getElementById("fullscreenButton").isHover = false;
+
+    if (!document.getElementById("fullscreenButton").isDown)
+    {
+        document.getElementById("fullscreenButton").style.opacity = "0.5";
+    }
+});
+
+document.getElementById("fullscreenButton").addEventListener("mousedown", function()
+{
+    document.getElementById("fullscreenButton").isDown = true;
+    document.getElementById("fullscreenButton").style.opacity = "1";
+});
+
+document.addEventListener("mouseup", function()
+{
+    if (document.getElementById("fullscreenButton").isDown)
+    {
+        document.getElementById("fullscreenButton").isDown = false;
+
+        if (document.getElementById("fullscreenButton").isHover)
+        {
+            document.getElementById("fullscreenButton").style.opacity = "0.75";
+
+            if (!document.fullscreenElement)
+            {
+                document.documentElement.requestFullscreen();
+            }
+            else
+            {
+                document.exitFullscreen();
+            }
+        }
+        else
+        {
+            document.getElementById("fullscreenButton").style.opacity = "0.5";
+        }
+    }
+});
+</script>
