@@ -28,7 +28,7 @@ function Button()
 
     requestAnimationFrame(Button);
 
-    if (!document.getElementById("fullscreenButton").isDown && !document.getElementById("fullscreenButton").matches(":hover"))
+    if (!document.getElementById("fullscreenButton").isDown && !document.getElementById("fullscreenButton").isHover)
     {
         document.getElementById("fullscreenButton").isHover = false;
 
