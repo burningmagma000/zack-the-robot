@@ -27,6 +27,16 @@ function Button()
     document.getElementById("fullscreenButton").style.top = document.getElementsByTagName("canvas")[0].getBoundingClientRect().top + document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 60 + "px";
 
     requestAnimationFrame(Button);
+
+    if (!document.getElementById("fullscreenButton").isDown && !document.getElementById("fullscreenButton").matches(":hover"))
+    {
+        document.getElementById("fullscreenButton").isHover = false;
+
+        if (!document.getElementById("fullscreenButton").isDown)
+        {
+            document.getElementById("fullscreenButton").style.opacity = "0.5";
+        }
+    }
 }
 
 requestAnimationFrame(Button);
