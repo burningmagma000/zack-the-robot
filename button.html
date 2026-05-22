@@ -1,4 +1,4 @@
-<img id = "fullscreenButton" src = "https://raw.githubusercontent.com/burningmagma000/zack-the-robot/refs/heads/main/fullscreenButton.png" style = "position: absolute; opacity: 0.5; pointer-events: auto;">
+<img id="fullscreenButton" src="https://raw.githubusercontent.com/burningmagma000/zack-the-robot/refs/heads/main/fullscreenButton.png" style="position: absolute; opacity: 0.5; pointer-events: auto;">
 
 <script>
 document.getElementById("fullscreenButton").isHover = false;
@@ -18,13 +18,20 @@ function Button()
         return;
     }
 
-    document.getElementById("fullscreenButton").style.width = document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 30 + "px";
+    document.getElementById("fullscreenButton").style.width =
+        document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 30 + "px";
 
-    document.getElementById("fullscreenButton").style.height = document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 30 + "px";
+    document.getElementById("fullscreenButton").style.height =
+        document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 30 + "px";
 
-    document.getElementById("fullscreenButton").style.left = document.getElementsByTagName("canvas")[0].getBoundingClientRect().right - document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 30 - document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 60 + "px";
+    document.getElementById("fullscreenButton").style.left =
+        document.getElementsByTagName("canvas")[0].getBoundingClientRect().right -
+        document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 30 -
+        document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 60 + "px";
 
-    document.getElementById("fullscreenButton").style.top = document.getElementsByTagName("canvas")[0].getBoundingClientRect().top + document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 60 + "px";
+    document.getElementById("fullscreenButton").style.top =
+        document.getElementsByTagName("canvas")[0].getBoundingClientRect().top +
+        document.getElementsByTagName("canvas")[0].getBoundingClientRect().width / 60 + "px";
 
     requestAnimationFrame(Button);
 }
@@ -57,13 +64,21 @@ document.getElementById("fullscreenButton").addEventListener("mousedown", functi
     document.getElementById("fullscreenButton").style.opacity = "1";
 });
 
-document.addEventListener("mouseup", function()
+document.addEventListener("mouseup", function(e)
 {
     if (document.getElementById("fullscreenButton").isDown)
     {
         document.getElementById("fullscreenButton").isDown = false;
 
-        if (document.getElementById("fullscreenButton").isHover)
+        const rect = document.getElementById("fullscreenButton").getBoundingClientRect();
+
+        const inside =
+            e.clientX >= rect.left &&
+            e.clientX <= rect.right &&
+            e.clientY >= rect.top &&
+            e.clientY <= rect.bottom;
+
+        if (inside)
         {
             document.getElementById("fullscreenButton").style.opacity = "0.75";
 
