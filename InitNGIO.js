@@ -1,3 +1,5 @@
+globalThis.NGIO = NGIO;
+
 // Initializes the API
 globalThis.NGIO.init("61686:2lkgsPoW","bQAW7Z0BUfIAPRFfexaWnA==", {
 		version: "1.0.1",
