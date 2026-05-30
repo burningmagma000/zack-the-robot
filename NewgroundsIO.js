@@ -14,32 +14,32 @@ class NGIO
 	// preloading statuses
 
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_INITIALIZED()				{ return "initialized"; }
 
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_CHECKING_LOCAL_VERSION()	{ return "checking-local-version"; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_LOCAL_VERSION_CHECKED()	{ return "local-version-checked"; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_PRELOADING_ITEMS()		{ return "preloading-items"; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_ITEMS_PRELOADED()			{ return "items-preloaded"; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_READY()					{ return "ready"; }
 
@@ -48,58 +48,58 @@ class NGIO
 
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_SESSION_UNINITIALIZED()	{ return NewgroundsIO.SessionState.SESSION_UNINITIALIZED; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_WAITING_FOR_SERVER()		{ return NewgroundsIO.SessionState.WAITING_FOR_SERVER; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_LOGIN_REQUIRED()			{ return NewgroundsIO.SessionState.LOGIN_REQUIRED; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_WAITING_FOR_USER()		{ return NewgroundsIO.SessionState.WAITING_FOR_USER; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_LOGIN_CANCELLED()			{ return NewgroundsIO.SessionState.LOGIN_CANCELLED; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_LOGIN_SUCCESSFUL()		{ return NewgroundsIO.SessionState.LOGIN_SUCCESSFUL; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_LOGIN_FAILED()			{ return NewgroundsIO.SessionState.LOGIN_FAILED; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_USER_LOGGED_OUT()			{ return NewgroundsIO.SessionState.USER_LOGGED_OUT; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_SERVER_UNAVAILABLE()		{ return NewgroundsIO.SessionState.SERVER_UNAVAILABLE; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get STATUS_EXCEEDED_MAX_ATTEMPTS()	{ return NewgroundsIO.SessionState.EXCEEDED_MAX_ATTEMPTS; }
 
 	/**
 	 * Will be true if the current connection status is one requiring a 'please wait' message
-	 * @type {boolean}
+	 * @type {any}
 	 */
 	static get isWaitingStatus() {
 
@@ -114,32 +114,32 @@ class NGIO
 	// scoreboard periods
 
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get PERIOD_TODAY()			{ return "D"; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get PERIOD_CURRENT_WEEK()	{ return "W"; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get PERIOD_CURRENT_MONTH()	{ return "M"; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get PERIOD_CURRENT_YEAR()	{ return "Y"; }
 	
 	/**
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get PERIOD_ALL_TIME()		{ return "A"; }
 
 	/**
-	 * @type {Array.<string>}
+	 * @type {any}
 	 */
 	static get PERIODS() { return [NGIO.PERIOD_TODAY, NGIO.PERIOD_CURRENT_WEEK, NGIO.PERIOD_CURRENT_MONTH, NGIO.PERIOD_CURRENT_YEAR, NGIO.PERIOD_ALL_TIME]; }
 
@@ -148,211 +148,211 @@ class NGIO
 
 	/**
 	 * A reference to the NewgroundsIO.Core instance created in Init().
-	 * @type {NewgroundsIO.Core}
+	 * @type {any}
 	 */
 	static get ngioCore() { return this.#ngioCore; }
 	static #ngioCore = null;
 
 	/*
 	 * The user's overall Newgrounds medal score
-	 * @type {number}
+	 * @type {any}
 	 */
 	static get medalScore() { return this.#medalScore; }
 	static #medalScore = -1;
 
 	/**
 	 * An array of preloaded medals
-	 * @type {Array.<NewgroundsIO.objects.Medal>}
+	 * @type {any}
 	 */
 	static get medals() { return this.#medals; }
 	static #medals = null;
 
 	/**
 	 * An array of preloaded scoreBoards
-	 * @type {Array.<NewgroundsIO.objects.ScoreBoard>}
+	 * @type {any}
 	 */
 	static get scoreBoards() { return this.#scoreBoards; }
 	static #scoreBoards = null;
 
 	/**
 	 * An array of preloaded saveSlots
-	 * @type {Array.<NewgroundsIO.objects.SaveSlot>}
+	 * @type {any}
 	 */
 	static get saveSlots() { return this.#saveSlots; }
 	static #saveSlots = null;
 
 	/**
 	 * The last time a component or queue was executed
-	 * @type {Date}
+	 * @type {any}
 	 */
 	static get lastExecution() { return this.#lastExecution; }
 	static #lastExecution = new Date();
 
 	/**
 	 * Contains the last connection status. Value will be one of the STATUS_XXXXX constants.
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get lastConnectionStatus() { return this.#lastConnectionStatus; }
 	static #lastConnectionStatus = new Date();
 
 	/**
 	 * Will be null unless there was an error in our session.
-	 * @type {NewgroundsIO.objects.Error}
+	 * @type {any}
 	 */
 	static get sessionError() { return this.#sessionError; }
 	static #sessionError = null;
 
 	/**
 	 * Will be set to false if the local copy of the game is being hosted illegally.
-	 * @type {boolean}
+	 * @type {any}
 	 */
 	static get legalHost() { return this.#legalHost; }
 	static #legalHost = true;
 
 	/**
 	 * Will be set to true if this is an out-of-date copy of the game.
-	 * @type {boolean}
+	 * @type {any}
 	 */
 	static get isDeprecated() { return this.#isDeprecated; }
 	static #isDeprecated = true;
 
 	/**
 	 * This is the version number(string) of the newest available copy of the game.
-	 * @type {boolean}
+	 * @type {any}
 	 */
 	static get newestVersion() { return this.#newestVersion; }
 	static #newestVersion = true;
 
 	/**
 	 * Will be true if the user opened the login page via OpenLoginPage().
-	 * @type {boolean}
+	 * @type {any}
 	 */
 	static get loginPageOpen() { return this.#loginPageOpen; }
 	static #loginPageOpen = false;
 
 	/**
 	 * The current version of the Newgrounds.io gateway.
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get gatewayVersion() { return this.#gatewayVersion; }
 	static #gatewayVersion = true;
 
 	/**
 	 * Stores the last medal that was unlocked.
-	 * @type {NewgroundsIO.objects.Medal}
+	 * @type {any}
 	 */
 	static get lastMedalUnlocked() { return this.#lastMedalUnlocked; }
 	static #lastMedalUnlocked = true;
 
 	/**
 	 * Stores the last scoreboard that was posted to.
-	 * @type {NewgroundsIO.objects.ScoreBoard}
+	 * @type {any}
 	 */
 	static get lastBoardPosted() { return this.#lastBoardPosted; }
 	static #lastBoardPosted = true;
 
 	/**
 	 * Stores the last score that was posted to.
-	 * @type {NewgroundsIO.objects.Score}
+	 * @type {any}
 	 */
 	static get lastScorePosted() { return this.#lastScorePosted; }
 	static #lastScorePosted = true;
 
 	/**
 	 * Stores the last scores that were loaded.
-	 * @type {NewgroundsIO.results.ScoreBoard.getScores}
+	 * @type {any}
 	 */
 	static get lastGetScoresResult() { return this.#lastGetScoresResult; }
 	static #lastGetScoresResult = true;
 
 	/**
 	 * Stores the last saveSlot that had data loaded.
-	 * @type {NewgroundsIO.objects.SaveSlot}
+	 * @type {any}
 	 */
 	static get lastSaveSlotLoaded() { return this.#lastSaveSlotLoaded; }
 	static #lastSaveSlotLoaded = true;
 
 	/**
 	 * Stores the last saveSlot that had data saved.
-	 * @type {NewgroundsIO.objects.SaveSlot}
+	 * @type {any}
 	 */
 	static get lastSaveSlotSaved() { return this.#lastSaveSlotSaved; }
 	static #lastSaveSlotSaved = true;
 
 	/**
 	 * Stores the last DateTime that was loaded from the API.
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get lastDateTime() { return this.#lastDateTime; }
 	static #lastDateTime = "0000-00-00";
 
 	/**
 	 * Stores the last event that was logged.
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get lastLoggedEvent() { return this.#lastLoggedEvent; }
 	static #lastLoggedEvent = null;
 
 	/**
 	 * Stores the last unix timestamp that was loaded API.
-	 * @type {number}
+	 * @type {any}
 	 */
 	static get lastTimeStamp() { return this.#lastTimeStamp; }
 	static #lastTimeStamp = 0;
 
 	/**
 	 * Stores wether the last server ping succeeded.
-	 * @type {boolean}
+	 * @type {any}
 	 */
 	static get lastPingSuccess() { return this.#lastPingSuccess; }
 	static #lastPingSuccess = true;
 
 	/**
 	 * Will be true if we've called Init().
-	 * @type {boolean}
+	 * @type {any}
 	 */
 	static get isInitialized() { return this.ngioCore !== null; }
 
 	/**
 	 * Contains all information about the current user session.
-	 * @type {NewgroundsIO.objects.Session}
+	 * @type {any}
 	 */
 	static get session() { return this.isInitialized ? this.ngioCore.session : null; }
 
 	/**
 	 * Contains user information if the user is logged in. Otherwise null.
-	 * @type {NewgroundsIO.objects.User}
+	 * @type {any}
 	 */
 	static get user() { return this.session === null ? null : this.ngioCore.session.user; }
 
 	/**
 	 * Returns true if we currently have a valid session ID.
-	 * @type {boolean}
+	 * @type {any}
 	 */
 	static get hasSession() { return this.session !== null; }
 
 	/**
 	 * Returns true if we currently have a valid session ID.
-	 * @type {boolean}
+	 * @type {any}
 	 */
 	static get hasUser() { return this.user !== null; }
 
 	/**
 	 * Will be true if we've finished logging in and preloading data.
-	 * @type {boolean}
+	 * @type {any}
 	 */
 	static get isReady() { return this.#lastConnectionStatus === this.STATUS_READY; }
 
 	/**
 	 * The version number passed in Init()'s options
-	 * @type {string}
+	 * @type {any}
 	 */
 	static get version() { return this.#version; }
 	static #version = "0.0.0";
 
 	/**
 	 * Will be tue if using debugMode via Init()
-	 * @type {boolean}
+	 * @type {any}
 	 */
 	static get debugMode() { return this.#debugMode; }
 	static #debugMode = false;
@@ -1294,5 +1294,3 @@ class NGIO
 /** End Class NGIO **/
 
 globalThis.NGIO = NGIO;
-
-globalThis.NewgroundsIO = NewgroundsIO;
