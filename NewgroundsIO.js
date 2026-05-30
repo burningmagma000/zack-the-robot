@@ -1294,3 +1294,5 @@ class NGIO
 /** End Class NGIO **/
 
 globalThis.NGIO = NGIO;
+
+globalThis.NewgroundsIO = NewgroundsIO;
