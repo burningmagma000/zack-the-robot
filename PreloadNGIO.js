@@ -1,5 +1,4 @@
 let ngioReady = false;
-
 setTimeout(function()
 {
     let ngioInterval = setInterval(function()
@@ -8,7 +7,6 @@ setTimeout(function()
         {
             return;
         }
-
         globalThis.NGIO_API.getConnectionStatus(function(status)
         {
             switch (status)
@@ -18,11 +16,18 @@ setTimeout(function()
                     {
                         ngioReady = true;
                         clearInterval(ngioInterval);
-
                         globalThis.NGIO_API.getMedal(89935);
                         globalThis.NGIO_API.getMedal(90406);
                         globalThis.NGIO_API.getMedal(90407);
                         globalThis.NGIO_API.getMedal(90408);
+                        if (globalThis.NGIO_API.hasUser)
+                        {
+                            const medal = globalThis.NGIO_API.getMedal(89935);
+                            if (medal && !medal.unlocked)
+                            {
+                                globalThis.NGIO_API.unlockMedal(89935);
+                            }
+                        }
                     }
                 break;
             }
