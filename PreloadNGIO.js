@@ -30,9 +30,11 @@ setTimeout(function()
                         }
                         setInterval(function()
 						{
-							globalThis.NGIO_API.getConnectionStatus(function(status) {});
 							if (globalThis.NGIO_API.hasUser)
+							{
+								globalThis.NGIO_API.getConnectionStatus(function(status) {});
 								globalThis.NGIO_API.keepSessionAlive();
+							}
 						}, 1000);
                     }
                 break;
