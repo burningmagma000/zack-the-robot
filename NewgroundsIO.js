@@ -7810,4 +7810,3 @@ if (typeof(NewgroundsIO.results.ScoreBoard) === 'undefined') NewgroundsIO.result
 NewgroundsIO.results.ScoreBoard.postScore = postScore;
 
 })();
-
