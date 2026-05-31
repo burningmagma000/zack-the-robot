@@ -15,7 +15,6 @@ setTimeout(function()
                     if (!ngioReady)
                     {
                         ngioReady = true;
-                        clearInterval(ngioInterval);
                         globalThis.NGIO_API.getMedal(89935);
                         globalThis.NGIO_API.getMedal(90406);
                         globalThis.NGIO_API.getMedal(90407);
