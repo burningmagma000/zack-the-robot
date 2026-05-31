@@ -13,8 +13,6 @@ setTimeout(function()
 
         globalThis.NGIO_API.getConnectionStatus(function(status)
         {
-            console.log("NGIO Status:", status);
-
             switch (status)
             {
                 case globalThis.NGIO_API.STATUS_READY:
@@ -27,7 +25,6 @@ setTimeout(function()
                         globalThis.NGIO_API.unlockMedal(90406);
                         globalThis.NGIO_API.unlockMedal(90407);
                         globalThis.NGIO_API.unlockMedal(90408);
-                        console.log("Medals unlocked!");
                     }
                 break;
             }
