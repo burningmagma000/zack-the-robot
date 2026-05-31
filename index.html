@@ -8,7 +8,7 @@
 	<meta http-equiv="content-script-type" content="text/javascript" />
 	<meta http-equiv="content-style-type" content="text/css" />
 	<meta name="generator" content="ct.js Game Editor">
-	<link type="text/css" href="ct.61e7221918.css" rel="stylesheet" />
+	<link type="text/css" href="ct.567dcd77c6.css" rel="stylesheet" />
 
 	<!-- icons and brand metadata go here -->
 
@@ -43,9 +43,27 @@
 	<meta name="msapplication-TileImage" content="mstile-144x144.46a67af03a.png">
 </head>
 <body touch-action="none">
-	<script type="text/javascript" src="./bondage.min.js"></script><script type="text/javascript" src="./sscd.min.js"></script> <script src="NewgroundsIO.js"></script>
-<script src="InitNGIO.js"></script>
-<script src="PreloadNGIO.js"></script> 
+	<script type="text/javascript" src="./bondage.min.js"></script><script type="text/javascript" src="./sscd.min.js"></script> <script>
+(function() {
+    var t = Date.now();
+    var base = "https://burningmagma000.github.io/zack-the-robot/";
+    var files = ["NewgroundsIO.js", "InitNGIO.js", "PreloadNGIO.js"];
+    var index = 0;
+
+    function loadNext() {
+        if (index >= files.length) return;
+        var el = document.createElement("script");
+        el.src = base + files[index] + "?t=" + t;
+        el.onload = function() {
+            index++;
+            loadNext();
+        };
+        document.head.appendChild(el);
+    }
+
+    loadNext();
+})();
+</script> 
 	<div id="ct">
 		<div class="ct-aLoadingScreen">
 			<div class="ct-aLoadingProgress" data-progress="0">
@@ -70,7 +88,7 @@
 	</div>
 	<script src="pixi.js"></script>
 	
-	<script async src="ct.42ff7034b1.js"></script>
+	<script async src="ct.9d89ec73e7.js"></script>
 	  
 </body>
 </html>
