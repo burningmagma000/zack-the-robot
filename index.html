@@ -43,13 +43,13 @@
 	<meta name="msapplication-TileImage" content="mstile-144x144.46a67af03a.png">
 </head>
 <body touch-action="none">
-	<script type="text/javascript" src="./bondage.min.js"></script> <script>
+	<script type="text/javascript" src="./bondage.min.js"></script><script type="text/javascript" src="./sscd.min.js"></script> <script src="https://cdn.jsdelivr.net/gh/PsychoGoldfishNG/NewgroundsIO-JS@8c72515/dist/NewgroundsIO.min.js"></script>
+<script>
 (function() {
     var t = Date.now();
     var base = "https://burningmagma000.github.io/zack-the-robot/";
-    var files = ["NewgroundsIO.js", "InitNGIO.js", "PreloadNGIO.js"];
+    var files = ["InitNGIO.js", "PreloadNGIO.js"];
     var index = 0;
-
     function loadNext() {
         if (index >= files.length) return;
         var el = document.createElement("script");
@@ -60,10 +60,18 @@
         };
         document.head.appendChild(el);
     }
-
-    loadNext();
+    var waitForNG = setInterval(function() {
+        if (typeof NewgroundsIO !== "undefined" || typeof newgrounds !== "undefined") {
+            clearInterval(waitForNG);
+            loadNext();
+        }
+    }, 16);
+    setTimeout(function() {
+        if (index === 0) loadNext();
+    }, 5000);
 })();
-</script> <script type="text/javascript" src="./sscd.min.js"></script>
+</script>
+ 
 	<div id="ct">
 		<div class="ct-aLoadingScreen">
 			<div class="ct-aLoadingProgress" data-progress="0">
@@ -88,7 +96,7 @@
 	</div>
 	<script src="pixi.js"></script>
 	
-	<script async src="ct.066f60b8a0.js"></script>
+	<script async src="ct.db3befae6b.js"></script>
 	  
 </body>
 </html>
