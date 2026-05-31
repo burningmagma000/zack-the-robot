@@ -1,23 +1,28 @@
 let ngioReady = false;
 
-let ngioInterval = setInterval(function()
+setTimeout(function()
 {
-    globalThis.NGIO_API.getConnectionStatus(function(status)
+    let ngioInterval = setInterval(function()
     {
-        switch (status)
+        globalThis.NGIO_API.getConnectionStatus(function(status)
         {
-            case globalThis.NGIO_API.STATUS_READY:
-                if (!ngioReady)
-                {
-                    ngioReady = true;
+            console.log("NGIO Status:", status);
 
-                    globalThis.NGIO_API.getMedal(89935);
-                    globalThis.NGIO_API.getMedal(90406);
-                    globalThis.NGIO_API.getMedal(90407);
-                    globalThis.NGIO_API.getMedal(90408);
-                    console.log("Medals got!");
-                }
-            break;
-        }
-    });
-}, 16);
+            switch (status)
+            {
+                case globalThis.NGIO_API.STATUS_READY:
+                    if (!ngioReady)
+                    {
+                        ngioReady = true;
+                        clearInterval(ngioInterval);
+
+                        globalThis.NGIO_API.getMedal(89935);
+                        globalThis.NGIO_API.getMedal(90406);
+                        globalThis.NGIO_API.getMedal(90407);
+                        globalThis.NGIO_API.getMedal(90408);
+                    }
+                break;
+            }
+        });
+    }, 16);
+}, 1000);
