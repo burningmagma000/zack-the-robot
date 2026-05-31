@@ -28,6 +28,11 @@ setTimeout(function()
                                 globalThis.NGIO_API.unlockMedal(89935);
                             }
                         }
+                        setInterval(function()
+                        {
+                            globalThis.NGIO_API.getConnectionStatus(function(status) {});
+                            globalThis.NGIO_API.keepSessionAlive();
+                        }, 1000);
                     }
                 break;
             }
